@@ -21,10 +21,11 @@ This is a screencast of the [example app](example) running.
 
 This will not be a hugely popular library because it is only useful in rare edge cases.
 
-I am currently working on a redesign of `redux-form`, which contains a large outer component, that
-is very expensive to rerender, but that _occasionally_ (e.g. form submit) needs access to state in
-Redux that changes on every single keystroke. Rather than rerender the whole form every time, 
-`redux-spy` will allow my large component to _spy_ on the Redux state only when it needs to.
+I am currently working on a redesign of [`redux-form`](https://github.com/erikras/redux-form), 
+which contains a large outer component, that is very expensive to rerender, but that
+_occasionally_ (e.g. form submit) needs access to state in Redux that changes on every single
+keystroke. Rather than rerender the whole form every time, `redux-spy` will allow my large
+component to _spy_ on the Redux state only when it needs to.
 
 ## API
 
