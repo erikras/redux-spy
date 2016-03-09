@@ -62,7 +62,7 @@ export default LazyUserList
 ### `reduxSpy(mapStateToKeys)`
 
 > `mapStateToKeys` is very similar to `mapStateToProps` that you would give to `connect()`, except 
-it doesn't, in this version, accept an `ownProps` second parameter.
+it doesn't accept an `ownProps` second parameter.
 
 ### Props provided to your decorated component
 
