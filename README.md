@@ -1,5 +1,10 @@
 # Redux Spy
 
+[![NPM Version](https://img.shields.io/npm/v/redux-spy.svg?style=flat)](https://www.npmjs.com/package/redux-spy) 
+[![NPM Downloads](https://img.shields.io/npm/dm/redux-spy.svg?style=flat)](https://www.npmjs.com/package/redux-spy)
+[![Build Status](https://img.shields.io/travis/erikras/redux-spy/master.svg?style=flat)](https://travis-ci.org/erikras/redux-spy)
+[![codecov.io](https://codecov.io/github/erikras/redux-spy/coverage.svg?branch=master)](https://codecov.io/github/erikras/redux-spy?branch=master)
+
 `redux-spy` works like `react-redux`'s `connect()` decorator, except that, rather than subscribe 
 to changes in the Redux store, which causes a rerender, it gives its wrapped component a function
 with which to query specific slices of the Redux store.
