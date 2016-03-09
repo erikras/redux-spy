@@ -17,50 +17,14 @@ This is a screencast of the [example app](example) running.
 
 ![screencast](screencast.gif)
 
-## Example
+## Why???
 
-Say you have a Redux store that looks like:
+This will not be a hugely popular library because it is only useful in rare edge cases.
 
-```js
-{
-  users: [  // a collection of records maintained by the 'users' reducer
-    ...
-  ]
-}
-```
-
-If you had a component that listed all the users, but maybe there are many many users and 
-rerendering your list with every change to the users list would be impractical.
-
-```js
-import React, { Component } from 'react'
-import reduxSpy from 'redux-spy'
-
-class LazyUserList extends Component {
-  state = { userList: [] }
-  
-  update() {
-    this.setState({
-      userList: this.props.spy('items') // <-- key given to reduxSpy() below
-    })
-  }
-  
-  render() {
-    const { userList } = this.props
-    return (
-      <button onClick={() => this.update()}>Update Users</button>
-      <ul>
-        {userList.map(user => <li key={user.id}>{user.name}</li>)}
-      </ul>
-    )
-  }
-}
-
-// decorate the component
-LazyUserList = reduxSpy(state => ({ items: state.users }))(LazyUserList)
-
-export default LazyUserList
-```
+I am currently working on a redesign of `redux-form`, which contains a large outer component, that
+is very expensive to rerender, but that _occasionally_ (e.g. form submit) needs access to state in
+Redux that changes on every single keystroke. Rather than rerender the whole form every time, 
+`redux-spy` will allow my large component to _spy_ on the Redux state only when it needs to.
 
 ## API
 
