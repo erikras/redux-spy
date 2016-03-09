@@ -1,0 +1,82 @@
+{
+  "name": "redux-spy",
+  "version": "1.0.0",
+  "description": "A higher order component decorator to spy on Redux state with subscribing to it",
+  "main": "./lib/index.js",
+  "jsnext:main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erikras/redux-spy"
+  },
+  "scripts": {
+    "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
+    "build:lib": "babel src --out-dir lib",
+    "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/redux-spy.js",
+    "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/redux-spy.min.js",
+    "clean": "rimraf dist lib",
+    "lint": "eslint src",
+    "prepublish": "npm run test && npm run clean && npm run build",
+    "test": "mocha --compilers js:babel-register --recursive 'src/**/__tests__/*' --require src/__tests__/setup.js",
+    "test:watch": "npm test -- --watch",
+    "test:cov": "babel-node ./node_modules/isparta/bin/isparta cover ./node_modules/mocha/bin/_mocha -- --recursive 'src/**/__tests__/*' --require src/__tests__/setup.js",
+    "test:codecov": "cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "flux",
+    "redux",
+    "react-redux",
+    "redux-spy",
+    "decorator"
+  ],
+  "author": "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erikras/redux-spy/issues"
+  },
+  "homepage": "https://github.com/erikras/redux-spy",
+  "dependencies": {
+    "hoist-non-react-statics": "^1.0.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-core": "^6.3.26",
+    "babel-eslint": "^5.0.0-beta9",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-2": "^6.1.18",
+    "babel-register": "^6.3.13",
+    "codecov.io": "^0.1.6",
+    "cross-env": "^1.0.7",
+    "eslint": "^1.7.1",
+    "eslint-config-rackt": "1.1.0",
+    "eslint-plugin-react": "^3.16.1",
+    "expect": "^1.14.0",
+    "isparta": "^4.0.0",
+    "jsdom": "~5.4.3",
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.1.0",
+    "react": "^0.14.7",
+    "react-addons-test-utils": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "redux": "^3.3.1",
+    "rimraf": "^2.5.2",
+    "webpack": "^1.12.13"
+  },
+  "peerDependencies": {
+    "react-redux": "^3.0.0 || ^4.0.0",
+    "redux": "^3.0.0"
+  },
+  "npmName": "redux-spy",
+  "npmFileMap": [
+    {
+      "basePath": "/dist/",
+      "files": [
+        "*.js"
+      ]
+    }
+  ]
+}
