@@ -1,7 +1,7 @@
-import { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
-class Spy extends Component {
+class Spy extends React.Component {
   getProp(key) {
     return this.props[ key ]
   }

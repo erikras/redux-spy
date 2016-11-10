@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import hoistStatics from 'hoist-non-react-statics'
 import Spy from './Spy'
 
 const reduxSpy = (mapStateToKeys = () => ({})) => WrappedComponent => {
-  class ReduxSpy extends Component {
+  class ReduxSpy extends React.Component {
     render() {
       return (
         <div>
