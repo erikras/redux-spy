@@ -3,14 +3,15 @@
   "version": "1.0.1",
   "description": "A higher order component decorator to spy on Redux state with subscribing to it",
   "main": "./lib/index.js",
-  "jsnext:main": "./src/index.js",
+  "jsnext:main": "./es6/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/erikras/redux-spy"
   },
   "scripts": {
-    "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
-    "build:lib": "babel src --out-dir lib",
+    "build": "npm run build:es6 && npm run build:lib && npm run build:umd && npm run build:umd:min",
+    "build:es6": "babel src --out-dir es6",
+    "build:lib": "babel --no-babelrc --presets=es2015,react,stage-2 src --out-dir lib",
     "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/redux-spy.js",
     "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/redux-spy.min.js",
     "clean": "rimraf dist lib",

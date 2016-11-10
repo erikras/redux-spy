@@ -32,7 +32,11 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ }
+      {
+        test: /\.js$/,
+        loader: 'babel-loader?presets[]=es2015&presets[]=react&presets[]=stage-2',
+        exclude: /node_modules/,
+      }
     ]
   },
   output: {
